@@ -1,0 +1,37 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX wales_period: <https://gss-cogs.github.io/datasets/out/WelshGov-flood_defence_expenditure/2022/welshgov_flood_coastal_errosion_defence_allocation/allocation-for-flood-and-coastal-erosion-risk-management-wales.csv#dimension/period>
+PREFIX wales_allocated_spending: <https://gss-cogs.github.io/datasets/out/WelshGov-flood_defence_expenditure/2022/welshgov_flood_coastal_errosion_defence_allocation/allocation-for-flood-and-coastal-erosion-risk-management-wales.csv#measure/allocated-spending>
+PREFIX england_period: <https://gss-cogs.github.io/datasets/out/DEFRA-flood_defence_expenditure/2021/defra_flood_costal_errosion_defence_expendature/expenditure-on-flood-and-coastal-erosion-risk-management-england.csv#dimension/period>
+PREFIX england_spending: <https://gss-cogs.github.io/datasets/out/DEFRA-flood_defence_expenditure/2021/defra_flood_costal_errosion_defence_expendature/expenditure-on-flood-and-coastal-erosion-risk-management-england.csv#measure/total-spend>
+
+PREFIX uk_countries: <http://statistics.data.gov.uk/def/statistical-geography#>
+
+SELECT   ?period ?country ?spending_or_allocation
+
+WHERE 
+{
+	{
+		?row a qb:Observation;
+
+		wales_period: /rdfs:label ?period ;
+		wales_allocated_spending: ?spending_or_allocation .
+		<http://statistics.data.gov.uk/id/statistical-geography/W92000004> uk_countries:officialname  ?country .
+	
+	}
+	UNION
+	{
+      ?row a qb:Observation;
+
+      england_period: /rdfs:label ?period ;
+      england_spending: ?spending_or_allocation .
+      <http://statistics.data.gov.uk/id/statistical-geography/E92000001> uk_countries:officialname  ?country.
+	
+	}
+
+}
+
+HAVING (?period > "2017-2018")
+
+ORDER BY DESC(?period)
