@@ -1,0 +1,77 @@
+{
+    "$schema": "https://purl.org/csv-cubed/qube-config/v1.0",
+    "title": "Covid Infection Survey data ingestion project",
+    "summary": "Get the Covid Infection Survey data onto Data Explorer for UKHSA to add to their Covid Dashboard",
+    "description": "The Covid Infection Survey (CIS) is a study of to accurately model the UK's incidence of Covid infections across various breakdowns including region, age, and gender.",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": "https://www.gov.uk/government/organisations/office-for-national-statistics",
+    "publisher": "https://www.gov.uk/government/organisations/office-for-national-statistics",
+    "dataset_issued": "2023-01-19T00:00:00Z",
+    "keywords": ["COVID-19", "Vaccination", "COVID-19 vaccination UK"],
+    "columns": {
+        "week": {
+            "type": "dimension"
+        },
+        "ons_geog_code": {
+            "type": "dimension"
+        },
+        "percentage_pop_est": {
+            "type": "observations",
+            "unit": {
+                "label": "Percentage"
+            },
+            "measure": {
+                "label": "Estimated average % of the population"
+            }
+        },
+        "percentage_pop_est_lci": {
+            "type": "observations",
+            "unit": {
+                "label": "Percentage"
+            },
+            "measure": {
+                "label": "95% Lower confidence/credible interval for percentage"
+            }
+        },
+
+        "percentage_pop_est_uci": {
+            "type": "observations",
+            "unit": {
+                "label": "Percentage"
+            },
+            "measure": {
+                "label": "95% Upper confidence/credible interval for percentage"
+            }
+        },
+
+        "pop_est": {
+            "type": "observations",
+            "unit": {
+                "label": "Count"
+            },
+            "measure": {
+                "label": "Estimated average number of people"
+            }
+        },
+
+        "pop_est_lci": {
+            "type": "observations",
+            "unit": {
+                "label": "Count"
+            },
+            "measure": {
+                "label": "95% Lower confidence/credible interval for number"
+            }
+        },
+
+        "pop_est_uci": {
+            "type": "observations",
+            "unit": {
+                "label": "Count"
+            },
+            "measure": {
+                "label": "95% Upper confidence/credible interval for number"
+            }
+        }
+    }
+}
