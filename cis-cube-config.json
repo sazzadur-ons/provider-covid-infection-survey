@@ -1,13 +1,13 @@
 {
-    "$schema": "https://purl.org/csv-cubed/qube-config/v1.0",
+    "$schema": "https://purl.org/csv-cubed/qube-config/v1",
     "title": "Covid Infection Survey data ingestion project",
-    "summary": "Get the Covid Infection Survey data onto Data Explorer for UKHSA to add to their Covid Dashboard",
+    "summary": "Get the Covid Infection Survey data onto Data Explorer for UKHSA",
     "description": "The Covid Infection Survey (CIS) is a study of to accurately model the UK's incidence of Covid infections across various breakdowns including region, age, and gender.",
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "creator": "https://www.gov.uk/government/organisations/office-for-national-statistics",
-    "publisher": "https://www.gov.uk/government/organisations/office-for-national-statistics",
-    "dataset_issued": "2023-01-19T00:00:00Z",
-    "keywords": ["COVID-19", "Vaccination", "COVID-19 vaccination UK"],
+    "publisher": "https://www.gov.uk/government/organisations/uk-health-security-agency",
+    "dataset_issued": "2023-01-23T00:00:00Z",
+    "keywords": ["COVID-19", "Vaccination", "COVID-19 vaccination UK", "England"],
     "columns": {
         "week": {
             "type": "dimension"
@@ -18,6 +18,7 @@
         "percentage_pop_est": {
             "type": "observations",
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/PERCENT",
                 "label": "Percentage"
             },
             "measure": {
@@ -27,6 +28,7 @@
         "percentage_pop_est_lci": {
             "type": "observations",
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/PERCENT",
                 "label": "Percentage"
             },
             "measure": {
@@ -37,7 +39,9 @@
         "percentage_pop_est_uci": {
             "type": "observations",
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/PERCENT",
                 "label": "Percentage"
+
             },
             "measure": {
                 "label": "95% Upper confidence/credible interval for percentage"
@@ -47,6 +51,7 @@
         "pop_est": {
             "type": "observations",
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/NUM",
                 "label": "Count"
             },
             "measure": {
@@ -56,7 +61,9 @@
 
         "pop_est_lci": {
             "type": "observations",
+            
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/NUM",
                 "label": "Count"
             },
             "measure": {
@@ -67,6 +74,7 @@
         "pop_est_uci": {
             "type": "observations",
             "unit": {
+                "from_existing":"http://qudt.org/vocab/unit/NUM",
                 "label": "Count"
             },
             "measure": {
